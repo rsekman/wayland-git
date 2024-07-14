@@ -1,6 +1,6 @@
 pkgbase = wayland-git
 	pkgdesc = A computer display server protocol (git version)
-	pkgver = 1.18.0.r18.gef611a80
+	pkgver = 1.23.0.r4.gfa1811c
 	pkgrel = 1
 	url = https://wayland.freedesktop.org/
 	arch = x86_64
@@ -18,16 +18,17 @@ pkgbase = wayland-git
 	depends = expat
 	depends = libxml2
 	source = git+https://gitlab.freedesktop.org/wayland/wayland.git
+	source = 401.patch
 	sha256sums = SKIP
+	sha256sums = 2697916289351b4650b5d9f3c495b6b295bce7504b9dd3693b3627c609caa9fe
 
 pkgname = wayland-git
-	provides = wayland=1.18.0.r18.gef611a80
+	provides = wayland=1.23.0.r4.gfa1811c
 	conflicts = wayland
 
 pkgname = wayland-docs-git
 	pkgdesc = A computer display server protocol (git version) (documentation)
 	arch = any
 	depends = 
-	provides = wayland-docs=1.18.0.r18.gef611a80
+	provides = wayland-docs=1.23.0.r4.gfa1811c
 	conflicts = wayland-docs
-

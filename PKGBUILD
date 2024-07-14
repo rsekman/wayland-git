@@ -4,7 +4,7 @@
 
 pkgbase=wayland-git
 pkgname=('wayland-git' 'wayland-docs-git')
-pkgver=1.18.0.r18.gef611a80
+pkgver=1.23.0.r4.gfa1811c
 pkgrel=1
 pkgdesc='A computer display server protocol (git version)'
 arch=('x86_64')
@@ -12,11 +12,16 @@ url='https://wayland.freedesktop.org/'
 license=('MIT')
 depends=('glibc' 'libffi' 'expat' 'libxml2')
 makedepends=('git' 'meson' 'ninja' 'libxslt' 'doxygen' 'xmlto' 'graphviz' 'docbook-xsl')
-source=('git+https://gitlab.freedesktop.org/wayland/wayland.git')
-sha256sums=('SKIP')
+source=('git+https://gitlab.freedesktop.org/wayland/wayland.git' '401.patch')
+sha256sums=('SKIP'
+            '2697916289351b4650b5d9f3c495b6b295bce7504b9dd3693b3627c609caa9fe')
 
 pkgver() {
     git -C wayland describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g;s/^v//'
+}
+
+prepare () {
+    patch -d "$srcdir/${pkgbase%-git}" -p1 < 401.patch
 }
 
 build() {
